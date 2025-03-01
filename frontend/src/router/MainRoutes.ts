@@ -6,11 +6,7 @@ const MainRoutes = {
   redirect: '/main',
   component: () => import('@/layouts/dashboard/DashboardLayout.vue'),
   children: [
-    {
-      name: 'LandingPage',
-      path: '/',
-      component: () => import('@/views/dashboard/DefaultDashboard.vue')
-    },
+    
     {
       name: 'Dashboard',
       path: '/dashboard',
