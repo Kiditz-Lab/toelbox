@@ -4,17 +4,24 @@ import { useCustomizerStore } from '../../../stores/customizer';
 import { MenuFoldOutlined, SearchOutlined, GithubOutlined } from '@ant-design/icons-vue';
 
 // dropdown imports
-import NotificationDD from './NotificationDD.vue';
 import Searchbar from './SearchBarPanel.vue';
 import ProfileDD from './ProfileDD.vue';
-
+import CategoryMenu from './CategoryMenu.vue';
 const customizer = useCustomizerStore();
+defineProps({
+  isLogo: {
+    type: Boolean,
+    default: false
+  }
+});
+
+
 </script>
 
 <template>
   <v-app-bar elevation="0" height="60">
     <v-btn
-      class="hidden-md-and-down text-secondary mr-3"
+      class="hidden-md-and-down text-secondary mx-3"
       color="darkText"
       icon
       rounded="sm"
@@ -22,7 +29,8 @@ const customizer = useCustomizerStore();
       @click.stop="customizer.SET_MINI_SIDEBAR(!customizer.mini_sidebar)"
       size="small"
     >
-      <MenuFoldOutlined :style="{ fontSize: '16px' }" />
+    <img src="@/assets/images/logo.svg" width="32" height="32" v-if="isLogo" />
+    <MenuFoldOutlined :style="{ fontSize: '16px' }" v-else/>
     </v-btn>
     <v-btn
       class="hidden-lg-and-up text-secondary ms-3"
@@ -63,11 +71,18 @@ const customizer = useCustomizerStore();
     <!-- ---------------------------------------------- -->
     <!-- Search part -->
     <!-- ---------------------------------------------- -->
-    <v-sheet class="d-none d-lg-block" width="250">
+    <v-sheet class="d-none d-lg-block" width="350">
       <Searchbar />
     </v-sheet>
 
     <!---/Search part -->
+
+    <!-- ---------------------------------------------- -->
+    <!-- Category -->
+    <!-- ---------------------------------------------- -->
+    <CategoryMenu />
+
+    <!---/Category -->
 
     <v-spacer />
     <!-- ---------------------------------------------- -->
@@ -92,7 +107,7 @@ const customizer = useCustomizerStore();
     <!-- ---------------------------------------------- -->
     <!-- Notification -->
     <!-- ---------------------------------------------- -->
-    <NotificationDD />
+    <!-- <NotificationDD /> -->
 
     <!-- ---------------------------------------------- -->
     <!-- User Profile -->

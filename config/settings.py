@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 import environ
+from firebase_admin import credentials, initialize_app
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+## Firebase
 
+FIREBASE_CREDENTIALS = "config/firebase_config.json"
+cred = credentials.Certificate(FIREBASE_CREDENTIALS)
+initialize_app(cred)
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,6 +60,12 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "apps.users.authentication.FirebaseAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+    ),
 }
 
 ROOT_URLCONF = "config.urls"
