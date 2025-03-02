@@ -22,7 +22,7 @@ defineProps({
 <template>
   <v-app-bar elevation="0" height="60">
     <v-btn
-      class="hidden-md-and-down text-secondary mr-3"
+      class="hidden-md-and-down text-secondary mx-3"
       color="darkText"
       icon
       rounded="sm"
