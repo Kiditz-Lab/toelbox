@@ -3,7 +3,7 @@ import VerticalHeaderVue from '@/layouts/dashboard/vertical-header/VerticalHeade
 </script>
 <template>
   <v-app :class="[]">
-    <VerticalHeaderVue />
+    <VerticalHeaderVue :is-logo="true" />
     <v-main class="ma-10">
       <v-container fluid>
         <v-row justify="start" align="center" class="hero-section">

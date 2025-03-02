@@ -9,6 +9,14 @@ import Searchbar from './SearchBarPanel.vue';
 import ProfileDD from './ProfileDD.vue';
 import CategoryMenu from './CategoryMenu.vue';
 const customizer = useCustomizerStore();
+defineProps({
+  isLogo: {
+    type: Boolean,
+    default: false
+  }
+});
+
+
 </script>
 
 <template>
@@ -22,7 +30,8 @@ const customizer = useCustomizerStore();
       @click.stop="customizer.SET_MINI_SIDEBAR(!customizer.mini_sidebar)"
       size="small"
     >
-      <MenuFoldOutlined :style="{ fontSize: '16px' }" />
+    <img src="@/assets/images/logo.svg" width="32" height="32" v-if="isLogo" />
+    <MenuFoldOutlined :style="{ fontSize: '16px' }" v-else/>
     </v-btn>
     <v-btn
       class="hidden-lg-and-up text-secondary ms-3"

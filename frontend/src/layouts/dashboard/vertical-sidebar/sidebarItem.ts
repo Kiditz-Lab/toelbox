@@ -11,7 +11,7 @@
 //   CrownOutlined
 // } from '@ant-design/icons-vue';
 
-import { FileImageOutlined, FontSizeOutlined } from '@ant-design/icons-vue';
+import { FileImageOutlined, FontSizeOutlined, DatabaseOutlined } from '@ant-design/icons-vue';
 
 export interface menu {
   header?: string;
@@ -121,6 +121,20 @@ const sidebarItem: menu[] = [
       {
         title: 'Image to Base64',
         to: '/base64-image'
+      }
+    ]
+  },
+  {
+    icon: DatabaseOutlined,
+    title: 'Data Tools',
+    children: [
+      {
+        title: 'CSV 2 Json',
+        to: '/csv-2-json'
+      },
+      {
+        title: 'Json 2 CSV',
+        to: '/csv-2-json'
       }
     ]
   }
