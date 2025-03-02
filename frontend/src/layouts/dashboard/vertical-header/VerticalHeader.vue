@@ -4,7 +4,6 @@ import { useCustomizerStore } from '../../../stores/customizer';
 import { MenuFoldOutlined, SearchOutlined, GithubOutlined } from '@ant-design/icons-vue';
 
 // dropdown imports
-import NotificationDD from './NotificationDD.vue';
 import Searchbar from './SearchBarPanel.vue';
 import ProfileDD from './ProfileDD.vue';
 import CategoryMenu from './CategoryMenu.vue';
@@ -81,36 +80,6 @@ defineProps({
     <!-- ---------------------------------------------- -->
     <!-- Category -->
     <!-- ---------------------------------------------- -->
-    <!-- <v-menu open-on-hover>
-      <template v-slot:activator="{ props }">
-        <v-btn color="text" v-bind="props" class="mx-5">
-          Category
-          <template v-slot:append>
-            <DownOutlined />
-          </template>
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item>
-          <template v-slot:prepend>
-            <FontSizeOutlined :style="{fontSize: '14px'}" class="mr-4 text-primary" />
-          </template>
-          <v-list-item-title>Text Tools</v-list-item-title>
-        </v-list-item>
-        <v-list-item>
-          <template v-slot:prepend>
-            <FontColorsOutlined :style="{fontSize: '14px'}" class="mr-4 text-primary" />
-          </template>
-          <v-list-item-title>Color Tools</v-list-item-title>
-        </v-list-item>
-        <v-list-item>
-          <template v-slot:prepend>
-            <FileImageOutlined :style="{fontSize: '14px'}" class="mr-4 text-primary" />
-          </template>
-          <v-list-item-title>Image Tools</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu> -->
     <CategoryMenu />
 
     <!---/Category -->
@@ -138,7 +107,7 @@ defineProps({
     <!-- ---------------------------------------------- -->
     <!-- Notification -->
     <!-- ---------------------------------------------- -->
-    <NotificationDD />
+    <!-- <NotificationDD /> -->
 
     <!-- ---------------------------------------------- -->
     <!-- User Profile -->
