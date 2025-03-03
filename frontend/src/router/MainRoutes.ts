@@ -33,9 +33,9 @@ const MainRoutes = {
       component: () => import('@/views/icons/AntDesignIcons.vue')
     },
     {
-      name: 'other',
-      path: '/sample-page',
-      component: () => import('@/views/StarterPage.vue')
+      name: 'text-diff',
+      path: '/text-diff',
+      component: () => import('@/views/apps/text/TextDiff.vue')
     }
   ]
 };

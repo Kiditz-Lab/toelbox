@@ -2,11 +2,12 @@
 import { useCustomizerStore } from '../../../stores/customizer';
 // icons
 import { MenuFoldOutlined, SearchOutlined, GithubOutlined } from '@ant-design/icons-vue';
-
+const { user } = useAuthStore();
 // dropdown imports
 import Searchbar from './SearchBarPanel.vue';
 import ProfileDD from './ProfileDD.vue';
 import CategoryMenu from './CategoryMenu.vue';
+import { useAuthStore } from '@/stores/auth';
 const customizer = useCustomizerStore();
 defineProps({
   isLogo: {
@@ -14,8 +15,6 @@ defineProps({
     default: false
   }
 });
-
-
 </script>
 
 <template>
@@ -29,8 +28,8 @@ defineProps({
       @click.stop="customizer.SET_MINI_SIDEBAR(!customizer.mini_sidebar)"
       size="small"
     >
-    <img src="@/assets/images/logo.svg" width="32" height="32" v-if="isLogo" />
-    <MenuFoldOutlined :style="{ fontSize: '16px' }" v-else/>
+      <img src="@/assets/images/logo.svg" width="32" height="32" v-if="isLogo" />
+      <MenuFoldOutlined :style="{ fontSize: '16px' }" v-else />
     </v-btn>
     <v-btn
       class="hidden-lg-and-up text-secondary ms-3"
@@ -112,14 +111,14 @@ defineProps({
     <!-- ---------------------------------------------- -->
     <!-- User Profile -->
     <!-- ---------------------------------------------- -->
-    <v-menu :close-on-content-click="false" offset="8, 0">
+    <v-menu :close-on-content-click="false" offset="8, 0" v-if="user">
       <template v-slot:activator="{ props }">
         <v-btn class="profileBtn" variant="text" rounded="sm" v-bind="props">
           <div class="d-flex align-center">
             <v-avatar class="mr-sm-2 mr-0 py-2">
-              <img src="@/assets/images/users/avatar-1.png" alt="Julia" />
+              <img :src="user.photoURL" alt="Julia" />
             </v-avatar>
-            <h6 class="text-subtitle-1 mb-0 d-sm-block d-none">JWT User</h6>
+            <h6 class="text-subtitle-1 mb-0 d-sm-block d-none">{{user.displayName}}</h6>
           </div>
         </v-btn>
       </template>
@@ -127,5 +126,8 @@ defineProps({
         <ProfileDD />
       </v-sheet>
     </v-menu>
+    <v-btn href="/login1" color="primary " variant="tonal" rounded="lg" class="mr-sm-2 mr-0 py-2" prepend-icon="mdi-home" v-else> 
+      Sign In
+    </v-btn>
   </v-app-bar>
 </template>

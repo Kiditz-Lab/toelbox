@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import Logo from '@/layouts/dashboard/logo/LogoDark.vue';
-import AuthLogin from '../authForms/AuthLogin.vue';
+// import AuthLogin from '../authForms/AuthLogin.vue';
+
 import AuthFooter from './AuthFooter.vue';
+import { useAuthStore } from '@/stores/auth';
+var store = useAuthStore();
+
 </script>
 
 <template>
@@ -39,7 +43,10 @@ import AuthFooter from './AuthFooter.vue';
                 <v-card elevation="24">
                   <v-card-text class="pa-sm-10 pa-6">
                     <!---Login Form-->
-                    <AuthLogin />
+                    <!-- <AuthLogin /> -->
+                    <v-btn @click="store.loginWithGoogle" color="primary" :loading="store.loading" block class="mt-5" variant="flat" size="large" type="submit">
+                      Login with google</v-btn
+                    >
                     <!---Login Form-->
                   </v-card-text>
                 </v-card>
