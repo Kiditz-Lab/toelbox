@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     'drf_spectacular',
     "apps.users",
+    "apps.product",
 ]
 
 MIDDLEWARE = [
@@ -60,12 +61,14 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "apps.users.authentication.FirebaseAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
-    ),
+    # "DEFAULT_AUTHENTICATION_CLASSES": (
+    #     "apps.users.authentication.FirebaseAuthentication",
+    # ),
+    # "DEFAULT_PERMISSION_CLASSES": (
+    #     "rest_framework.permissions.IsAuthenticated",
+    # ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
+    'PAGE_SIZE': 3,
 }
 
 ROOT_URLCONF = "config.urls"

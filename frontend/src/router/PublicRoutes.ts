@@ -13,7 +13,7 @@ const PublicRoutes = {
     {
       name: 'Authentication',
       path: '/login',
-      component: () => import('@/views/authentication/LoginPage.vue')
+      component: () => import('@/views/authentication/auth/LoginPage.vue')
     },
     {
       name: 'Login',

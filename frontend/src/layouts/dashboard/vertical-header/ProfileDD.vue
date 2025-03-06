@@ -1,21 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 // icons
 import {
-  LogoutOutlined,
-  UserOutlined,
-  SettingOutlined,
-  QuestionCircleOutlined,
-  LockOutlined,
-  CommentOutlined,
-  UnorderedListOutlined,
-  EditOutlined,
-  ProfileOutlined,
-  WalletOutlined
-} from '@ant-design/icons-vue';
+  LogoutOutlined} from '@ant-design/icons-vue';
 import { useAuthStore } from '@/stores/auth';
 
-const tab = ref(null);
+// const tab = ref(null);
 const authStore = useAuthStore();
 const { user } = authStore;
 </script>
@@ -27,7 +16,7 @@ const { user } = authStore;
   <div>
     <div class="d-flex align-center pa-5">
       <v-avatar size="32" class="mr-2">
-        <img :src="user.photoURL" width="32" alt="Julia" />
+        <img :src="user.photoURL" width="32" :alt="user.displayName" referrerPolicy="no-referrer"  />
       </v-avatar>
       <div>
         <h6 class="text-h6 mb-0">{{ user.displayName }}</h6>
@@ -39,7 +28,7 @@ const { user } = authStore;
         </v-btn>
       </div>
     </div>
-    <v-tabs v-model="tab" color="primary" grow>
+    <!-- <v-tabs v-model="tab" color="primary" grow>
       <v-tab value="111"> <UserOutlined class="v-icon--start" /> Profile </v-tab>
       <v-tab value="222"> <SettingOutlined class="v-icon--start" /> Setting </v-tab>
     </v-tabs>
@@ -132,6 +121,6 @@ const { user } = authStore;
           </v-list>
         </v-window-item>
       </v-window>
-    </perfect-scrollbar>
+    </perfect-scrollbar> -->
   </div>
 </template>

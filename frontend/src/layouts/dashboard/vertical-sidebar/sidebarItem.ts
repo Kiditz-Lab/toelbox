@@ -134,7 +134,7 @@ const sidebarItem: menu[] = [
       },
       {
         title: 'Json 2 CSV',
-        to: '/csv-2-json'
+        to: '/json-2-csv'
       }
     ]
   }
