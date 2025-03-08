@@ -23,6 +23,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/users/', include('apps.users.urls')),
     path('api/v1/products/', include('apps.product.urls')),
+    path('api/v1/data/', include('apps.data.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('swagger/', SpectacularSwaggerView.as_view(), name='swagger'),
     path('redoc/', SpectacularRedocView.as_view(), name='redoc'),
